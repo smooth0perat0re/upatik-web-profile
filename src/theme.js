@@ -4,19 +4,19 @@ const theme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#E53935', // Bugatti Red accent
-      dark: '#B71C1C',
+      main: '#b0b0b0', // Metallic Modern Grey
+      dark: '#808080',
     },
     secondary: {
-      main: '#424242', // Dark Grey
+      main: '#2c2c2c', // Dark Metallic
     },
     background: {
-      default: '#121212', // Black base
-      paper: '#1E1E1E',   // Dark Grey for cards/navbar
+      default: '#0a0a0a', // Jet Black
+      paper: '#121212',   // Slightly lighter Jet Black for cards
     },
     text: {
-      primary: '#FFFFFF',
-      secondary: '#B0BEC5',
+      primary: '#ffffff',
+      secondary: '#a0a0a0',
     }
   },
   typography: {
@@ -44,9 +44,9 @@ const theme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: 'rgba(30, 30, 30, 0.9)',
+          backgroundColor: 'rgba(10, 10, 10, 0.9)', // Jet Black with transparency
           backdropFilter: 'blur(10px)',
-          borderBottom: '1px solid rgba(229, 57, 53, 0.3)', // Subtle red border
+          borderBottom: '1px solid rgba(176, 176, 176, 0.2)', // Metallic border
         }
       }
     }
