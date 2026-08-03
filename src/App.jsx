@@ -1,51 +1,21 @@
 import React from 'react';
+import { Box } from '@mui/material';
 import Navbar from './components/Navbar';
-import Section from './components/Section';
-import { Box, Typography, Button } from '@mui/material';
+import HomeSection from './components/HomeSection';
+import AboutSection from './components/AboutSection';
+import ServicesSection from './components/ServicesSection';
+import TeamSection from './components/TeamSection';
+import ContactSection from './components/ContactSection';
 
 function App() {
   return (
     <Box>
       <Navbar />
-      
-      {/* Home / Hero Section */}
-      <Section id="home" isDark={true}>
-        <Box sx={{ textAlign: 'center', mt: 8 }}>
-          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 800 }}>
-            <span style={{ color: '#139FCB' }}>UPA-TIK</span> <span style={{ color: '#727272' }}>POLIBATAM</span>
-          </Typography>
-          <Typography variant="h5" color="text.secondary" paragraph>
-            Layanan Teknologi Informasi Komunikasi Profesional
-          </Typography>
-          <Button variant="contained" color="primary" size="large" sx={{ mt: 4 }}>
-            Jelajahi Layanan
-          </Button>
-        </Box>
-      </Section>
-
-      <Section id="about" title="Tentang Kami" isDark={false}>
-        <Typography variant="body1" align="center" color="text.secondary">
-          Deskripsi tentang UPA-TIK Polibatam akan dimuat di sini.
-        </Typography>
-      </Section>
-
-      <Section id="services" title="Layanan" isDark={true}>
-        <Typography variant="body1" align="center" color="text.secondary">
-          Daftar layanan IT yang diberikan oleh UPA-TIK.
-        </Typography>
-      </Section>
-
-      <Section id="team" title="Tim Kami" isDark={false}>
-        <Typography variant="body1" align="center" color="text.secondary">
-          Profil anggota tim UPA-TIK.
-        </Typography>
-      </Section>
-
-      <Section id="contact" title="Kontak" isDark={true}>
-        <Typography variant="body1" align="center" color="text.secondary">
-          Informasi kontak dan hubungi kami.
-        </Typography>
-      </Section>
+      <HomeSection />
+      <AboutSection />
+      <ServicesSection />
+      <TeamSection />
+      <ContactSection />
     </Box>
   );
 }
