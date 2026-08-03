@@ -3,6 +3,9 @@ import { Box, Typography, Grid, Container, Link } from '@mui/material';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useThemeContext } from '../contexts/ThemeContext';
 
+import logoPutih from '../assets/PNG-POLIBATAM/Polibatam Univ Logo (2) Putih.png';
+import logoHitam from '../assets/PNG-POLIBATAM/Polibatam Univ Logo (2) Hitam.png';
+
 export default function ContactSection() {
   const { t } = useLanguage();
   const { mode } = useThemeContext();
@@ -13,11 +16,11 @@ export default function ContactSection() {
         <Container maxWidth="xl">
           <Grid container spacing={4}>
             {/* Column 1: Logo & Desc */}
-            <Grid item xs={12} md={3}>
+            <Grid item xs={12} md={3} sx={{ display: 'flex', flexDirection: 'column', alignItems: { xs: 'center', md: 'flex-start' }, textAlign: { xs: 'center', md: 'left' } }}>
               <Box 
                 component="img"
-                src="/logo_upatik-removebg-preview.png"
-                alt="UPA-TIK Logo"
+                src={mode === 'dark' ? logoPutih : logoHitam}
+                alt="Polibatam Logo"
                 sx={{ height: 60, mb: 2 }}
               />
               <Typography variant="body2" color="text.secondary" paragraph>

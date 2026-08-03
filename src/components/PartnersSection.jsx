@@ -1,7 +1,5 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
-import Section from './Section';
-import { useLanguage } from '../contexts/LanguageContext';
+import { Box } from '@mui/material';
 import { useThemeContext } from '../contexts/ThemeContext';
 
 import logoBlu from '../assets/Logo Pendukung/Logo BLU.png';
@@ -18,29 +16,25 @@ const logos = [
 ];
 
 export default function PartnersSection() {
-  const { t } = useLanguage();
   const { mode } = useThemeContext();
 
   return (
-    <Box id="partners" sx={{ bgcolor: mode === 'dark' ? '#080808' : '#e0e5ec', py: 6, borderTop: '1px solid', borderColor: 'divider' }}>
-      <Typography variant="h6" color="text.secondary" align="center" gutterBottom sx={{ textTransform: 'uppercase', letterSpacing: 2, mb: 4, fontWeight: 700 }}>
-        {t('partners_title')}
-      </Typography>
+    <Box id="partners" sx={{ bgcolor: mode === 'dark' ? '#080808' : '#e0e5ec', py: 4, borderTop: '1px solid', borderColor: 'divider' }}>
       
       {/* Marquee Container */}
-      <Box sx={{ overflow: 'hidden', whiteSpace: 'nowrap', display: 'flex', alignItems: 'center' }}>
+      <Box sx={{ overflow: 'hidden', whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', width: '100%' }}>
         <Box 
           sx={{ 
             display: 'inline-flex',
-            animation: 'scroll 30s linear infinite',
+            animation: 'scroll 40s linear infinite',
             '@keyframes scroll': {
               '0%': { transform: 'translateX(0)' },
               '100%': { transform: 'translateX(-50%)' }
             }
           }}
         >
-          {/* Double the logos to make continuous scroll smooth */}
-          {[...logos, ...logos].map((logo, idx) => (
+          {/* 4x loop ensures the screen is fully filled even on ultrawide monitors and scrolls seamlessly */}
+          {[...logos, ...logos, ...logos, ...logos].map((logo, idx) => (
             <Box 
               key={idx}
               component="img"
@@ -51,6 +45,7 @@ export default function PartnersSection() {
                 mx: 4, 
                 objectFit: 'contain',
                 transition: 'all 0.3s ease',
+                flexShrink: 0,
                 '&:hover': {
                   transform: 'scale(1.1)'
                 }

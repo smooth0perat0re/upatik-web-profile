@@ -73,7 +73,7 @@ export default function ServicesSection() {
             >
               <CardActionArea sx={{ p: 4, flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
                 <Box sx={{ 
-                  bgcolor: 'rgba(19, 159, 203, 0.1)', 
+                  bgcolor: mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(19, 159, 203, 0.1)', 
                   p: 2, 
                   borderRadius: '50%',
                   mb: 2,
@@ -81,9 +81,9 @@ export default function ServicesSection() {
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}>
-                  <LanguageIcon className="service-icon" color="primary" sx={{ fontSize: 40, transition: 'all 0.4s ease' }} />
+                  <LanguageIcon className="service-icon" sx={{ fontSize: 40, transition: 'all 0.4s ease', color: mode === 'dark' ? '#fff' : 'primary.main' }} />
                 </Box>
-                <Typography className="service-title" variant="h6" color="text.primary" sx={{ fontWeight: 700, mb: 1, transition: 'all 0.4s ease', lineHeight: 1.3 }}>
+                <Typography className="service-title" variant="h6" sx={{ color: mode === 'dark' ? '#fff' : 'primary.main', fontWeight: 700, mb: 1, transition: 'all 0.4s ease', lineHeight: 1.3 }}>
                   {service.name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
