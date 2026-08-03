@@ -12,7 +12,7 @@ function App() {
       <Section id="home" isDark={true}>
         <Box sx={{ textAlign: 'center', mt: 8 }}>
           <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 800 }}>
-            <span style={{ color: '#b0b0b0' }}>UPA-TIK</span> POLIBATAM
+            <span style={{ color: '#139FCB' }}>UPA-TIK</span> <span style={{ color: '#727272' }}>POLIBATAM</span>
           </Typography>
           <Typography variant="h5" color="text.secondary" paragraph>
             Layanan Teknologi Informasi Komunikasi Profesional

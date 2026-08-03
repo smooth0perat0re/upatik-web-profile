@@ -4,28 +4,33 @@ const theme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#b0b0b0', // Metallic Modern Grey
-      dark: '#808080',
+      main: '#139FCB', // Cyan/Blue from logo
+      dark: '#0e7a9e',
     },
     secondary: {
-      main: '#2c2c2c', // Dark Metallic
+      main: '#727272', // Grey from logo
     },
     background: {
       default: '#0a0a0a', // Jet Black
       paper: '#121212',   // Slightly lighter Jet Black for cards
     },
     text: {
-      primary: '#ffffff',
-      secondary: '#a0a0a0',
+      primary: '#ffffff', // White for copywriting
+      secondary: '#d0d0d0', // Light grey for secondary text
     }
   },
   typography: {
     fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
       fontWeight: 700,
+      color: '#ffffff',
     },
     h2: {
       fontWeight: 600,
+      color: '#ffffff',
+    },
+    body1: {
+      color: '#ffffff',
     },
     button: {
       textTransform: 'none',
@@ -44,9 +49,9 @@ const theme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: 'rgba(10, 10, 10, 0.9)', // Jet Black with transparency
+          backgroundColor: 'rgba(10, 10, 10, 0.9)', 
           backdropFilter: 'blur(10px)',
-          borderBottom: '1px solid rgba(176, 176, 176, 0.2)', // Metallic border
+          borderBottom: '1px solid rgba(19, 159, 203, 0.3)', // Cyan border accent
         }
       }
     }
