@@ -1,6 +1,5 @@
 import React from 'react';
-import { Grid, Card, Typography, Avatar, Box } from '@mui/material';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import { Grid, Card, Typography, Box, SvgIcon } from '@mui/material';
 import Section from './Section';
 
 // Gambar Tim
@@ -14,6 +13,15 @@ import hengkyImg from '../assets/team/Hengky.jpg';
 import wendyImg from '../assets/team/Wendy.jpg';
 import erickImg from '../assets/team/Erick.jpg';
 import ariefImg from '../assets/team/Arief.jpg';
+
+// SVG Crown Asli
+function CrownIcon(props) {
+  return (
+    <SvgIcon {...props} viewBox="0 0 24 24">
+      <path d="M12 8L15 13.5L21 7L18 19H6L3 7L9 13.5L12 8ZM4 21H20V23H4V21Z" />
+    </SvgIcon>
+  );
+}
 
 const teamDivisions = [
   {
@@ -63,52 +71,77 @@ export default function TeamSection() {
     <Section id="team" title="Tim Kami" isDark={false}>
       <Box sx={{ maxWidth: 900, mx: 'auto' }}>
         {teamDivisions.map((division, idx) => (
-          <Box key={idx} sx={{ mb: 6 }}>
+          <Box key={idx} sx={{ mb: 8 }}>
             <Typography variant="h5" color="primary.main" gutterBottom sx={{ borderBottom: '1px solid', borderColor: 'divider', pb: 1, mb: 4, fontWeight: 'bold' }}>
               {division.title}
             </Typography>
             <Grid container spacing={4} justifyContent="center">
               {division.members.map((member, mIdx) => (
-                <Grid item xs={12} sm={6} key={mIdx} sx={{ display: 'flex', justifyContent: 'center' }}>
+                <Grid item xs={12} sm={6} md={6} key={mIdx} sx={{ display: 'flex', justifyContent: 'center' }}>
                   <Card 
                     sx={{ 
-                      bgcolor: 'background.paper', 
-                      display: 'flex', 
-                      flexDirection: 'column', 
-                      alignItems: 'center', 
-                      p: 4, 
-                      width: '100%',
+                      width: 280, 
+                      height: 400, 
                       position: 'relative',
-                      overflow: 'visible',
+                      overflow: 'hidden',
+                      borderRadius: 3,
+                      transition: 'transform 0.3s ease-in-out',
+                      '&:hover': {
+                        transform: 'scale(1.05)',
+                        '& .member-photo': {
+                          transform: 'scale(1.1)'
+                        }
+                      },
                       ...(member.isHead && {
                         border: '2px solid transparent',
                         backgroundOrigin: 'border-box',
                         backgroundClip: 'padding-box, border-box',
                         backgroundImage: `linear-gradient(#121212, #121212), linear-gradient(45deg, #ffd700, #ff8c00)`,
-                        boxShadow: '0 0 20px rgba(255, 215, 0, 0.2)'
+                        boxShadow: '0 0 25px rgba(255, 215, 0, 0.4)'
                       })
                     }}
                   >
                     {member.isHead && (
-                      <Box sx={{ position: 'absolute', top: -20, color: '#ffd700', bgcolor: '#121212', borderRadius: '50%', p: 0.5 }}>
-                        <EmojiEventsIcon sx={{ fontSize: 32 }} />
+                      <Box sx={{ position: 'absolute', top: 12, right: 12, zIndex: 3 }}>
+                        <CrownIcon sx={{ fontSize: 36, color: '#ffd700', filter: 'drop-shadow(0 0 5px rgba(255,215,0,0.8))' }} />
                       </Box>
                     )}
-                    <Avatar 
-                      src={member.img}
-                      sx={{ 
-                        width: 120, height: 120, mb: 2, 
-                        bgcolor: 'secondary.main',
-                        border: member.isHead ? '3px solid #ffd700' : 'none'
+                    
+                    <Box 
+                      className="member-photo"
+                      sx={{
+                        position: 'absolute',
+                        top: 0, left: 0, right: 0, bottom: 0,
+                        backgroundImage: `url(${member.img})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        transition: 'transform 0.5s ease',
+                        zIndex: 1
                       }}
-                      alt={member.name}
                     />
-                    <Typography variant="h6" color="text.primary" align="center" gutterBottom sx={{ fontWeight: member.isHead ? 700 : 500 }}>
-                      {member.name}
-                    </Typography>
-                    <Typography variant="body2" color="primary.main" align="center" sx={{ fontWeight: 'bold' }}>
-                      {member.role}
-                    </Typography>
+
+                    {/* Gradient Overlay bottom */}
+                    <Box 
+                      sx={{
+                        position: 'absolute',
+                        bottom: 0, left: 0, right: 0,
+                        height: '50%',
+                        background: 'linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.8) 40%, rgba(10,10,10,0) 100%)',
+                        zIndex: 2,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'flex-end',
+                        p: 3,
+                        textAlign: 'center'
+                      }}
+                    >
+                      <Typography variant="h6" sx={{ color: '#fff', fontWeight: 800, textShadow: '0px 2px 4px rgba(0,0,0,0.8)', lineHeight: 1.2, mb: 1 }}>
+                        {member.name}
+                      </Typography>
+                      <Typography variant="body2" sx={{ color: member.isHead ? '#ffd700' : 'primary.main', fontWeight: 'bold', textShadow: '0px 2px 4px rgba(0,0,0,0.8)' }}>
+                        {member.role}
+                      </Typography>
+                    </Box>
                   </Card>
                 </Grid>
               ))}

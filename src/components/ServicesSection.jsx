@@ -1,7 +1,7 @@
 import React from 'react';
-import { Grid, Card, CardContent, Typography, CardActionArea, Box } from '@mui/material';
+import { Grid, Box, Typography, CardActionArea } from '@mui/material';
 import Section from './Section';
-import ComputerIcon from '@mui/icons-material/Computer';
+import LanguageIcon from '@mui/icons-material/Language';
 
 const services = [
   "e-Learning Elektro & Mesin", "e-Learning P4M", "ICAE Polibatam", 
@@ -15,32 +15,56 @@ const services = [
 export default function ServicesSection() {
   return (
     <Section id="services" title="Faslink & Layanan" isDark={true}>
-      <Grid container spacing={3} alignItems="stretch">
+      <Grid container spacing={4} sx={{ px: { xs: 2, md: 4 } }}>
         {services.map((service, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex' }}>
-            <Card 
+          <Grid item xs={12} sm={6} md={4} lg={3} key={index} sx={{ display: 'flex' }}>
+            <Box 
               sx={{ 
-                bgcolor: 'background.paper', 
-                width: '100%', 
+                width: '100%',
+                bgcolor: 'rgba(18, 18, 18, 0.4)', 
+                backdropFilter: 'blur(12px)',
+                border: '1px solid rgba(19, 159, 203, 0.2)',
+                borderRadius: 4,
                 display: 'flex', 
                 flexDirection: 'column',
-                transition: '0.3s',
+                transition: 'all 0.4s ease',
+                position: 'relative',
+                overflow: 'hidden',
                 '&:hover': {
-                  boxShadow: '0 8px 16px 0 rgba(19, 159, 203, 0.4)',
-                  transform: 'translateY(-4px)'
+                  transform: 'translateY(-8px)',
+                  bgcolor: 'rgba(18, 18, 18, 0.8)', 
+                  border: '1px solid rgba(19, 159, 203, 1)',
+                  boxShadow: '0 10px 25px 0 rgba(19, 159, 203, 0.6), inset 0 0 15px rgba(19, 159, 203, 0.3)',
+                  '& .service-icon': {
+                    color: '#fff',
+                    transform: 'scale(1.2)'
+                  },
+                  '& .service-title': {
+                    color: 'primary.light'
+                  }
                 }
               }}
             >
-              <CardActionArea sx={{ p: 3, flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
-                <ComputerIcon color="primary" sx={{ fontSize: 40, mb: 2 }} />
-                <Typography variant="h6" color="text.primary" sx={{ fontWeight: 600 }}>
+              <CardActionArea sx={{ p: 4, flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
+                <Box sx={{ 
+                  bgcolor: 'rgba(19, 159, 203, 0.1)', 
+                  p: 2, 
+                  borderRadius: '50%',
+                  mb: 2,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <LanguageIcon className="service-icon" color="primary" sx={{ fontSize: 40, transition: 'all 0.4s ease' }} />
+                </Box>
+                <Typography className="service-title" variant="h6" color="text.primary" sx={{ fontWeight: 700, mb: 1, transition: 'all 0.4s ease', lineHeight: 1.3 }}>
                   {service}
                 </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-                  Akses portal layanan {service}
+                <Typography variant="body2" color="text.secondary">
+                  Akses layanan internal untuk aktivitas akademik.
                 </Typography>
               </CardActionArea>
-            </Card>
+            </Box>
           </Grid>
         ))}
       </Grid>
