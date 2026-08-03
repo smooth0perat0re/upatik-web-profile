@@ -22,7 +22,7 @@ export default function Navbar() {
               component="img"
               sx={{ height: 40, mr: 2 }}
               alt="Logo UPA-TIK"
-              src="/logo.png"
+              src="/logo_upatik.jpeg"
               onError={(e) => {
                 e.target.style.display = 'none'; // Sembunyikan jika gambar belum ada
               }}
