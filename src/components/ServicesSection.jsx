@@ -86,7 +86,7 @@ export default function ServicesSection() {
                 <Typography className="service-title" variant="h6" sx={{ color: mode === 'dark' ? '#fff' : 'primary.main', fontWeight: 700, mb: 1, transition: 'all 0.4s ease', lineHeight: 1.3 }}>
                   {service.name}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" sx={{ color: mode === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'text.secondary' }}>
                   {t('services_desc')}
                 </Typography>
               </CardActionArea>
