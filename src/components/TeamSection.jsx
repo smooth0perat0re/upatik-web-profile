@@ -72,7 +72,7 @@ export default function TeamSection() {
       <Box sx={{ maxWidth: 900, mx: 'auto' }}>
         {teamDivisions.map((division, idx) => (
           <Box key={idx} sx={{ mb: 8 }}>
-            <Typography variant="h5" color="primary.main" gutterBottom sx={{ borderBottom: '1px solid', borderColor: 'divider', pb: 1, mb: 4, fontWeight: 'bold' }}>
+            <Typography variant="h5" color="primary.main" align="center" gutterBottom sx={{ mb: 4, fontWeight: 'bold' }}>
               {division.title}
             </Typography>
             <Grid container spacing={4} justifyContent="center">
