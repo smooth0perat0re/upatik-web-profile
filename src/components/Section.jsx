@@ -11,7 +11,9 @@ export default function Section({ id, title, children, isDark }) {
         alignItems: 'center',
         bgcolor: isDark ? 'background.default' : 'background.paper',
         py: 10,
-        position: 'relative'
+        position: 'relative',
+        borderBottom: '1px solid',
+        borderColor: 'divider'
       }}
     >
       <Container maxWidth="lg">

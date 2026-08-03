@@ -50,7 +50,7 @@ export default function ContactSection() {
                     key={link.name} 
                     sx={{ fontSize: '0.875rem' }}
                   >
-                    &gt; {link.name}
+                    • {link.name}
                   </Link>
                 ))}
               </Box>
@@ -77,7 +77,7 @@ export default function ContactSection() {
                     key={link.name} 
                     sx={{ fontSize: '0.875rem' }}
                   >
-                    &gt; {link.name}
+                    • {link.name}
                   </Link>
                 ))}
               </Box>
