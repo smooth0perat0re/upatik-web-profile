@@ -20,40 +20,40 @@ const teamDivisions = [
     title: 'Network',
     members: [
       { 
-        name: 'Ir. Mhd. Fattahilah Rangkuty, S.Tr. Kom., M.Kom', 
-        role: 'Kepala UPA-TIK Polibatam', 
+        name: 'Mhd. Fattahilah Rangkuty', 
+        role: 'Kepala UPA-TIK, Network Admin', 
         img: fatahilahImg,
         isHead: true 
       },
-      { name: 'Nur Hidayat', role: 'Staff Network', img: nurImg }
+      { name: 'Nur Hidayat', role: 'Network Admin', img: nurImg }
     ]
   },
   {
     title: 'Data',
     members: [
-      { name: 'Liowna Mauboy, S.Kom', role: 'Data Engineer', img: liownaImg },
-      { name: 'Arlika Belle', role: 'Data Engineer', img: arlikaImg }
+      { name: 'Liowna Mauboy', role: 'System Analyst, Data Analyst, DB Admin', img: liownaImg },
+      { name: 'Arlika Belle', role: 'System Analyst, Data Analyst, DB Admin', img: arlikaImg }
     ]
   },
   {
     title: 'Software',
     members: [
-      { name: 'Mohammad Ichwan Rizky', role: 'Software Engineer', img: ichwanImg },
-      { name: 'Muhammad Feby Febrian, S.Kom', role: 'Software Engineer', img: febrianImg }
+      { name: 'Mohammad Ichwan Rizky', role: 'Fullstack Dev', img: ichwanImg },
+      { name: 'Muhammad Feby Febrian', role: 'Tukang Sihir', img: febrianImg }
     ]
   },
   {
     title: 'Helpdesk',
     members: [
-      { name: 'Hengky Leonardo, S. Kom', role: 'Helpdesk Support', img: hengkyImg },
-      { name: 'Wendy Sanjaya', role: 'Helpdesk Support', img: wendyImg }
+      { name: 'Hengky Leonardo', role: 'Helpdesk Officer', img: hengkyImg },
+      { name: 'Wendy Sanjaya', role: 'Helpdesk Master', img: wendyImg }
     ]
   },
   {
     title: 'Tata Usaha (TU)',
     members: [
       { name: 'Erick Saputra Wisnugraha', role: 'Staff TU', img: erickImg },
-      { name: 'Arief Sulisetyo Widodo, S.Kom', role: 'Staff TU', img: ariefImg }
+      { name: 'Arief Sulisetyo Widodo', role: 'Staff TU', img: ariefImg }
     ]
   }
 ];
