@@ -77,7 +77,7 @@ export default function TeamSection() {
             </Typography>
             <Grid container spacing={4} justifyContent="center">
               {division.members.map((member, mIdx) => (
-                <Grid item xs={12} sm={6} md={6} key={mIdx} sx={{ display: 'flex', justifyContent: 'center' }}>
+                <Grid item xs={12} sm="auto" key={mIdx} sx={{ display: 'flex', justifyContent: 'center' }}>
                   <Card 
                     sx={{ 
                       width: 280, 

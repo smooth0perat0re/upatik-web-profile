@@ -15,9 +15,9 @@ const services = [
 export default function ServicesSection() {
   return (
     <Section id="services" title="Faslink & Layanan" isDark={true}>
-      <Grid container spacing={4} sx={{ px: { xs: 2, md: 4 } }}>
+      <Grid container spacing={4} justifyContent="center" sx={{ px: { xs: 2, md: 4 } }}>
         {services.map((service, index) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={index} sx={{ display: 'flex' }}>
+          <Grid item xs={12} sm={6} md={4} lg={4} key={index} sx={{ display: 'flex' }}>
             <Box 
               sx={{ 
                 width: '100%',
