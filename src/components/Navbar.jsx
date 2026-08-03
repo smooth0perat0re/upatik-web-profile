@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Box, Container } from '@mui/material';
 import { Link } from 'react-scroll';
-import logo from '../assets/logo.png'; // Pastikan ada file logo.png di src/assets/
+
 
 const navItems = [
   { label: 'Home', target: 'home' },
@@ -22,7 +22,7 @@ export default function Navbar() {
               component="img"
               sx={{ height: 40, mr: 2 }}
               alt="Logo UPA-TIK"
-              src={logo}
+              src="/logo.png"
               onError={(e) => {
                 e.target.style.display = 'none'; // Sembunyikan jika gambar belum ada
               }}
