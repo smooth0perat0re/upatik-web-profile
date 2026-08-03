@@ -23,7 +23,7 @@ export default function HomeSection() {
           
           <Box 
             component="img" 
-            src={mode === 'dark' ? logoPutih : logoHitam} 
+            src="/Polibatam Univ Logo.png" 
             alt="Polibatam Logo" 
             sx={{ height: 120, mb: 4 }}
           />
@@ -44,7 +44,7 @@ export default function HomeSection() {
             <Button variant="outlined" color="primary" size="large">
               {t('home_btn_services')}
             </Button>
-            <Button variant="contained" color="primary" size="large">
+            <Button variant="contained" color="primary" size="large" href="https://helpdesk.polibatam.ac.id/" target="_blank">
               {t('home_btn_helpdesk')}
             </Button>
           </Box>

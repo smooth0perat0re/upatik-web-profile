@@ -4,7 +4,7 @@ const conn = new Client();
 
 conn.on('ready', () => {
   console.log('Terhubung ke server via SSH...');
-  const cmd = 'cd web-profile && git pull origin master && docker compose up -d --build || (git clone https://github.com/smooth0perat0re/upatik-web-profile.git web-profile && cd web-profile && docker compose up -d --build)';
+  const cmd = 'cd web-profile && git fetch && git checkout feature/experimental-ui && git pull origin feature/experimental-ui && docker compose up -d --build';
   
   conn.exec(cmd, (err, stream) => {
     if (err) {

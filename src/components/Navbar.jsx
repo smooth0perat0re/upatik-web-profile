@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Typography, Button, Box, Container, IconButton } from 
 import { Link } from 'react-scroll';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
-import TranslateIcon from '@mui/icons-material/Translate';
+import LanguageIcon from '@mui/icons-material/Language';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useThemeContext } from '../contexts/ThemeContext';
 
@@ -20,7 +20,15 @@ export default function Navbar() {
   const { mode, toggleTheme } = useThemeContext();
 
   return (
-    <AppBar position="fixed" elevation={0} sx={{ bgcolor: mode === 'dark' ? 'background.paper' : 'primary.main' }}>
+    <AppBar 
+      position="fixed" 
+      elevation={0} 
+      sx={{ 
+        bgcolor: mode === 'dark' ? 'background.paper' : '#ffffff',
+        borderBottom: mode === 'light' ? '2px solid' : 'none',
+        borderColor: 'primary.main'
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
           
@@ -42,7 +50,7 @@ export default function Navbar() {
                 fontFamily: 'monospace',
                 fontWeight: 700,
                 letterSpacing: '.1rem',
-                color: mode === 'dark' ? 'primary.main' : '#ffffff',
+                color: 'primary.main',
                 textDecoration: 'none',
               }}
             >
@@ -57,7 +65,7 @@ export default function Navbar() {
                 fontFamily: 'monospace',
                 fontWeight: 700,
                 letterSpacing: '.1rem',
-                color: mode === 'dark' ? 'secondary.main' : 'rgba(255,255,255,0.7)',
+                color: 'secondary.main',
                 textDecoration: 'none',
               }}
             >
@@ -76,7 +84,7 @@ export default function Navbar() {
                   offset={-70}
                   duration={500}
                 >
-                  <Button sx={{ color: '#fff', '&:hover': { color: mode === 'dark' ? 'primary.main' : '#e0e0e0' } }}>
+                  <Button sx={{ color: mode === 'dark' ? '#fff' : 'text.primary', '&:hover': { color: 'primary.main' } }}>
                     {t(item.key)}
                   </Button>
                 </Link>
@@ -85,11 +93,11 @@ export default function Navbar() {
 
             {/* Toggle Theme & Language */}
             <Box sx={{ display: 'flex', gap: 1 }}>
-              <IconButton onClick={toggleLanguage} sx={{ color: '#fff', fontSize: '1rem', fontWeight: 'bold' }}>
-                <TranslateIcon sx={{ mr: 0.5 }} fontSize="small" />
+              <IconButton onClick={toggleLanguage} sx={{ color: mode === 'dark' ? '#fff' : 'text.primary', fontSize: '1rem', fontWeight: 'bold' }}>
+                <LanguageIcon sx={{ mr: 0.5 }} fontSize="small" />
                 {lang.toUpperCase()}
               </IconButton>
-              <IconButton onClick={toggleTheme} sx={{ color: '#fff' }}>
+              <IconButton onClick={toggleTheme} sx={{ color: mode === 'dark' ? '#fff' : 'text.primary' }}>
                 {mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
               </IconButton>
             </Box>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Typography, Grid, Container, Link } from '@mui/material';
-import Section from './Section';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useThemeContext } from '../contexts/ThemeContext';
 
@@ -9,8 +8,8 @@ export default function ContactSection() {
   const { mode } = useThemeContext();
   
   return (
-    <Section id="contact" isDark={mode === 'dark'} disablePadding={true}>
-      <Box sx={{ pt: 8, pb: 6, bgcolor: mode === 'dark' ? '#0a0a0a' : '#eceff4', borderTop: '1px solid', borderColor: 'divider' }}>
+    <Box id="contact" sx={{ width: '100%', bgcolor: mode === 'dark' ? '#0a0a0a' : '#eceff4', borderTop: '1px solid', borderColor: 'divider' }}>
+      <Box sx={{ pt: 8, pb: 6 }}>
         <Container maxWidth="xl">
           <Grid container spacing={4}>
             {/* Column 1: Logo & Desc */}
@@ -33,7 +32,14 @@ export default function ContactSection() {
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                 {['Perpustakaan', 'Jurnal', 'Repository', 'Helpdesk', 'Lembaga Sertifikasi Profesi'].map((link) => (
-                  <Link href="#" color="text.secondary" underline="hover" key={link} sx={{ fontSize: '0.875rem' }}>
+                  <Link 
+                    href={link === 'Helpdesk' ? "https://helpdesk.polibatam.ac.id/" : "#"} 
+                    target={link === 'Helpdesk' ? "_blank" : "_self"}
+                    color="text.secondary" 
+                    underline="hover" 
+                    key={link} 
+                    sx={{ fontSize: '0.875rem' }}
+                  >
                     &gt; {link}
                   </Link>
                 ))}
@@ -82,6 +88,6 @@ export default function ContactSection() {
           Copyright © 2026 UPA TIK Polibatam - All rights reserved.
         </Typography>
       </Box>
-    </Section>
+    </Box>
   );
 }

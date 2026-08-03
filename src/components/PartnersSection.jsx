@@ -50,12 +50,9 @@ export default function PartnersSection() {
                 height: 60, 
                 mx: 4, 
                 objectFit: 'contain',
-                filter: mode === 'dark' ? 'grayscale(100%) brightness(200%)' : 'grayscale(100%) brightness(50%)',
-                opacity: 0.7,
                 transition: 'all 0.3s ease',
                 '&:hover': {
-                  filter: 'grayscale(0%)',
-                  opacity: 1
+                  transform: 'scale(1.1)'
                 }
               }}
             />
