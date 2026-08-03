@@ -42,27 +42,24 @@ export default function Navbar() {
                 e.target.style.display = 'none';
               }}
             />
-                color: 'primary.main',
-                textDecoration: 'none',
-              }}
-            >
-              UPA-TIK
-            </Typography>
-            <Typography
-              variant="h6"
-              noWrap
-              sx={{
-                ml: 1,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.1rem',
-                color: 'secondary.main',
-                textDecoration: 'none',
-              }}
-            >
-              POLIBATAM
-            </Typography>
+            <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 0.5 }}>
+              <Typography variant="h6" sx={{ 
+                color: mode === 'dark' ? 'primary.main' : 'primary.dark', 
+                fontFamily: '"Monument Extended", "Syncopate", sans-serif',
+                fontWeight: 'bold', 
+                letterSpacing: 1 
+              }}>
+                UPA-TIK
+              </Typography>
+              <Typography variant="h6" sx={{ 
+                color: mode === 'dark' ? 'text.secondary' : 'text.primary', 
+                fontFamily: '"Monument Extended", "Syncopate", sans-serif',
+                fontWeight: 'normal', 
+                letterSpacing: 1 
+              }}>
+                POLIBATAM
+              </Typography>
+            </Box>
           </Box>
 
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
