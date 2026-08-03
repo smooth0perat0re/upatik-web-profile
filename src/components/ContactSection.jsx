@@ -34,16 +34,23 @@ export default function ContactSection() {
                 {t('footer_quicklinks')}
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                {['Perpustakaan', 'Jurnal', 'Repository', 'Helpdesk', 'Lembaga Sertifikasi Profesi'].map((link) => (
+                {[
+                  { name: 'Perpustakaan', url: 'https://lib.polibatam.ac.id/' },
+                  { name: 'Jurnal', url: 'https://jurnal.polibatam.ac.id/' },
+                  { name: 'Repository', url: 'https://repository.polibatam.ac.id/home' },
+                  { name: 'Helpdesk', url: 'https://helpdesk.polibatam.ac.id/' },
+                  { name: 'Lembaga Sertifikasi Profesi', url: 'https://lsp.polibatam.ac.id/' }
+                ].map((link) => (
                   <Link 
-                    href={link === 'Helpdesk' ? "https://helpdesk.polibatam.ac.id/" : "#"} 
-                    target={link === 'Helpdesk' ? "_blank" : "_self"}
+                    href={link.url} 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     color="text.secondary" 
                     underline="hover" 
-                    key={link} 
+                    key={link.name} 
                     sx={{ fontSize: '0.875rem' }}
                   >
-                    &gt; {link}
+                    &gt; {link.name}
                   </Link>
                 ))}
               </Box>
@@ -55,9 +62,22 @@ export default function ContactSection() {
                 {t('footer_elearning')}
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                {['e-Learning Elektro & Mesin', 'e-Learning Informatika', 'Sistem Informasi Akademik (SIA)', 'Pendaftaran'].map((link) => (
-                  <Link href="#" color="text.secondary" underline="hover" key={link} sx={{ fontSize: '0.875rem' }}>
-                    &gt; {link}
+                {[
+                  { name: 'e-Learning Elektro & Mesin', url: 'https://learning.polibatam.ac.id/' },
+                  { name: 'e-Learning Informatika', url: 'https://learning.polibatam.ac.id/' }, 
+                  { name: 'Sistem Informasi Akademik (SIA)', url: 'https://sia.polibatam.ac.id/' },
+                  { name: 'Pendaftaran', url: 'https://registrasi.polibatam.ac.id/' }
+                ].map((link) => (
+                  <Link 
+                    href={link.url} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    color="text.secondary" 
+                    underline="hover" 
+                    key={link.name} 
+                    sx={{ fontSize: '0.875rem' }}
+                  >
+                    &gt; {link.name}
                   </Link>
                 ))}
               </Box>
