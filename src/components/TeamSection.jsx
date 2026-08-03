@@ -1,6 +1,8 @@
 import React from 'react';
 import { Card, Typography, Box, SvgIcon, Divider } from '@mui/material';
 import Section from './Section';
+import { useLanguage } from '../contexts/LanguageContext';
+import { useThemeContext } from '../contexts/ThemeContext';
 
 // Gambar Tim
 import fatahilahImg from '../assets/team/Fatahilah.jpg';
@@ -25,49 +27,47 @@ function CrownIcon(props) {
 
 const teamDivisions = [
   {
-    title: 'Helpdesk & Jaringan',
+    title: 'team_network_title',
     members: [
-      { 
-        name: 'Mhd. Fattahilah Rangkuty', 
-        role: 'Kepala UPA-TIK, Network Admin', 
-        img: fatahilahImg,
-        isHead: true 
-      },
-      { name: 'Nur Hidayat', role: 'Network Admin', img: nurImg },
-      { name: 'Hengky Leonardo', role: 'Helpdesk Officer', img: hengkyImg },
-      { name: 'Wendy Sanjaya', role: 'Helpdesk Master', img: wendyImg }
+      { name: 'Mhd. Fattahilah Rangkuty', role: 'role_head', img: fatahilahImg, isHead: true },
+      { name: 'Nur Hidayat', role: 'role_netadmin', img: nurImg },
+      { name: 'Hengky Leonardo', role: 'role_helpdesk', img: hengkyImg },
+      { name: 'Wendy Sanjaya', role: 'role_helpdeskmaster', img: wendyImg }
     ]
   },
   {
-    title: 'Software & Data',
+    title: 'team_software_title',
     members: [
-      { name: 'Mohammad Ichwan Rizky', role: 'Fullstack Dev', img: ichwanImg },
-      { name: 'Muhammad Feby Febrian', role: 'Tukang Sihir', img: febrianImg },
-      { name: 'Liowna Mauboy', role: 'System Analyst, Data Analyst, DB Admin', img: liownaImg },
-      { name: 'Arlika Belle', role: 'System Analyst, Data Analyst, DB Admin', img: arlikaImg }
+      { name: 'Mohammad Ichwan Rizky', role: 'role_fsdev', img: ichwanImg },
+      { name: 'Muhammad Feby Febrian', role: 'role_magician', img: febrianImg },
+      { name: 'Liowna Mauboy', role: 'role_sysadmin', img: liownaImg },
+      { name: 'Arlika Belle', role: 'role_sysadmin', img: arlikaImg }
     ]
   },
   {
-    title: 'TU UPA-TIK',
+    title: 'team_tu_title',
     members: [
-      { name: 'Erick Saputra Wisnugraha', role: 'Staff TU', img: erickImg },
-      { name: 'Arief Sulisetyo Widodo', role: 'Staff TU', img: ariefImg }
+      { name: 'Erick Saputra Wisnugraha', role: 'role_tu', img: erickImg },
+      { name: 'Arief Sulisetyo Widodo', role: 'role_tu', img: ariefImg }
     ]
   }
 ];
 
 export default function TeamSection() {
+  const { t } = useLanguage();
+  const { mode } = useThemeContext();
+
   return (
-    <Section id="team" title="Tim Kami" isDark={false}>
+    <Section id="team" title={t('team_title')} isDark={mode === 'dark'}>
       <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
         {teamDivisions.map((division, idx) => (
           <React.Fragment key={idx}>
             {idx > 0 && (
-              <Divider sx={{ mb: 8, mx: 'auto', width: '80%', borderColor: 'rgba(19, 159, 203, 0.2)' }} />
+              <Divider sx={{ mb: 8, mx: 'auto', width: '80%', borderColor: mode === 'dark' ? 'rgba(19, 159, 203, 0.2)' : 'rgba(19, 159, 203, 0.4)' }} />
             )}
             <Box sx={{ mb: 8 }}>
               <Typography variant="h5" color="primary.main" align="center" gutterBottom sx={{ mb: 6, fontWeight: 'bold' }}>
-                {division.title}
+                {t(division.title)}
               </Typography>
               <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 4 }}>
                 {division.members.map((member, mIdx) => (
@@ -133,7 +133,7 @@ export default function TeamSection() {
                         {member.name}
                       </Typography>
                       <Typography variant="body2" sx={{ color: member.isHead ? '#ffd700' : 'primary.main', fontWeight: 'bold', textShadow: '0px 2px 4px rgba(0,0,0,0.8)' }}>
-                        {member.role}
+                        {t(member.role)}
                       </Typography>
                     </Box>
                   </Card>

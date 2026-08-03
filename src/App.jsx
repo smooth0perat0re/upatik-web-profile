@@ -5,6 +5,7 @@ import HomeSection from './components/HomeSection';
 import AboutSection from './components/AboutSection';
 import ServicesSection from './components/ServicesSection';
 import TeamSection from './components/TeamSection';
+import PartnersSection from './components/PartnersSection';
 import ContactSection from './components/ContactSection';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <AboutSection />
       <ServicesSection />
       <TeamSection />
+      <PartnersSection />
       <ContactSection />
     </Box>
   );

@@ -2,6 +2,8 @@ import React from 'react';
 import { Grid, Box, Typography, CardActionArea } from '@mui/material';
 import Section from './Section';
 import LanguageIcon from '@mui/icons-material/Language';
+import { useLanguage } from '../contexts/LanguageContext';
+import { useThemeContext } from '../contexts/ThemeContext';
 
 const services = [
   "e-Learning Elektro & Mesin", "e-Learning P4M", "ICAE Polibatam", 
@@ -13,8 +15,11 @@ const services = [
 ];
 
 export default function ServicesSection() {
+  const { t } = useLanguage();
+  const { mode } = useThemeContext();
+
   return (
-    <Section id="services" title="Faslink & Layanan" isDark={true}>
+    <Section id="services" title={t('services_title')} isDark={mode === 'dark'}>
       <Grid container spacing={4} justifyContent="center" alignItems="center" sx={{ px: { xs: 2, md: 4 } }}>
         {services.map((service, index) => (
           <Grid item xs={12} sm={4} md={4} lg={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -22,7 +27,7 @@ export default function ServicesSection() {
               sx={{ 
                 width: '100%',
                 maxWidth: 340,
-                bgcolor: 'rgba(18, 18, 18, 0.4)', 
+                bgcolor: mode === 'dark' ? 'rgba(18, 18, 18, 0.4)' : 'rgba(255, 255, 255, 0.8)', 
                 backdropFilter: 'blur(12px)',
                 border: '1px solid rgba(19, 159, 203, 0.2)',
                 borderRadius: 4,
@@ -33,15 +38,15 @@ export default function ServicesSection() {
                 overflow: 'hidden',
                 '&:hover': {
                   transform: 'translateY(-8px)',
-                  bgcolor: 'rgba(18, 18, 18, 0.8)', 
+                  bgcolor: mode === 'dark' ? 'rgba(18, 18, 18, 0.8)' : 'rgba(255, 255, 255, 1)', 
                   border: '1px solid rgba(19, 159, 203, 1)',
                   boxShadow: '0 10px 25px 0 rgba(19, 159, 203, 0.6), inset 0 0 15px rgba(19, 159, 203, 0.3)',
                   '& .service-icon': {
-                    color: '#fff',
+                    color: mode === 'dark' ? '#fff' : 'primary.main',
                     transform: 'scale(1.2)'
                   },
                   '& .service-title': {
-                    color: 'primary.light'
+                    color: 'primary.main'
                   }
                 }
               }}
@@ -62,7 +67,7 @@ export default function ServicesSection() {
                   {service}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Akses layanan internal untuk aktivitas akademik.
+                  {t('services_desc')}
                 </Typography>
               </CardActionArea>
             </Box>

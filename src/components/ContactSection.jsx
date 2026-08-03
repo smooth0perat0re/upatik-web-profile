@@ -1,11 +1,16 @@
 import React from 'react';
 import { Box, Typography, Grid, Container, Link } from '@mui/material';
 import Section from './Section';
+import { useLanguage } from '../contexts/LanguageContext';
+import { useThemeContext } from '../contexts/ThemeContext';
 
 export default function ContactSection() {
+  const { t } = useLanguage();
+  const { mode } = useThemeContext();
+  
   return (
-    <Section id="contact" isDark={true} disablePadding={true}>
-      <Box sx={{ pt: 8, pb: 6, bgcolor: '#0a0a0a', borderTop: '1px solid rgba(19, 159, 203, 0.3)' }}>
+    <Section id="contact" isDark={mode === 'dark'} disablePadding={true}>
+      <Box sx={{ pt: 8, pb: 6, bgcolor: mode === 'dark' ? '#0a0a0a' : '#eceff4', borderTop: '1px solid', borderColor: 'divider' }}>
         <Container maxWidth="xl">
           <Grid container spacing={4}>
             {/* Column 1: Logo & Desc */}
@@ -17,14 +22,14 @@ export default function ContactSection() {
                 sx={{ height: 60, mb: 2 }}
               />
               <Typography variant="body2" color="text.secondary" paragraph>
-                Unit Penunjang Akademik Teknologi, Informasi dan Komunikasi (UPA-TIK) Politeknik Negeri Batam.
+                {t('contact_desc')}
               </Typography>
             </Grid>
 
             {/* Column 2: Quick Links */}
             <Grid item xs={12} sm={4} md={3}>
               <Typography variant="subtitle1" color="primary.main" sx={{ fontWeight: 'bold', mb: 2 }}>
-                QUICK LINKS
+                {t('footer_quicklinks')}
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                 {['Perpustakaan', 'Jurnal', 'Repository', 'Helpdesk', 'Lembaga Sertifikasi Profesi'].map((link) => (
@@ -38,7 +43,7 @@ export default function ContactSection() {
             {/* Column 3: E-Learning & Akademik */}
             <Grid item xs={12} sm={4} md={3}>
               <Typography variant="subtitle1" color="primary.main" sx={{ fontWeight: 'bold', mb: 2 }}>
-                E-LEARNING & AKADEMIK
+                {t('footer_elearning')}
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                 {['e-Learning Elektro & Mesin', 'e-Learning Informatika', 'Sistem Informasi Akademik (SIA)', 'Pendaftaran'].map((link) => (
@@ -52,7 +57,7 @@ export default function ContactSection() {
             {/* Column 4: Contact Us */}
             <Grid item xs={12} sm={4} md={3}>
               <Typography variant="subtitle1" color="primary.main" sx={{ fontWeight: 'bold', mb: 2 }}>
-                CONTACT US
+                {t('footer_contact')}
               </Typography>
               <Typography variant="body2" color="text.secondary" paragraph>
                 Jl. Ahmad Yani, Batam Centre, Batam, Kepulauan Riau 29461
@@ -72,7 +77,7 @@ export default function ContactSection() {
       </Box>
 
       {/* Footer Bottom */}
-      <Box sx={{ bgcolor: '#050505', py: 3, textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+      <Box sx={{ bgcolor: mode === 'dark' ? '#050505' : '#e4e8ec', py: 3, textAlign: 'center', borderTop: '1px solid', borderColor: 'divider' }}>
         <Typography variant="body2" color="text.secondary">
           Copyright © 2026 UPA TIK Polibatam - All rights reserved.
         </Typography>
