@@ -1,0 +1,30 @@
+# Riwayat Aktivitas
+
+- **[2026-08-03]**:
+  - Inisialisasi `HISTORY_ACTIVITY.md`.
+  - Pembuatan draf `implementation_plan.md` untuk Web Profile UPA-TIK POLIBATAM.
+  - Setup React Vite app di `d:\UPA-TIK\web-profile`.
+  - Konfigurasi MUI dengan tema Bugatti Chiron Sport.
+  - Push repository ke `upatik-web-profile` via GitHub CLI.
+  - Setup file `Dockerfile` dan `docker-compose.yml`.
+  - **Fix**: Ganti port docker-compose dari 8080 (bentrok) ke 8085.
+  - **Fix**: Ubah tema menjadi Metallic Modern Grey dan Jet Black, hapus aksen merah.
+  - **Fix**: Ubah tema menggunakan Cyan/Biru dan Abu-abu dari logo, background tetap Jet Black, teks putih. Tambah slot logo di navbar.
+  - **Add**: Masukkan `logo_upatik-removebg-preview.png` yang transparan dan push/deploy ke server.
+  - **Feat**: Migrasi konten dari screenshot WordPress lama (Home, Profile, Layanan, Tim, Kontak) ke komponen React terpisah. Update UI Team menjadi Grid Cards per divisi. Push dan redeploy ke server.
+  - **Style**: Peningkatan UI. Tambah logo Polibatam di Home, hover effect di Services, reorder divisi Tim dengan layout 2 kolom dan desain Crown + Gold backlight untuk Kepala Unit, perombakan Footer 4 kolom. Deploy ulang ke server.
+  - **Fix**: Hapus gelar akademik dari nama tim, sesuaikan jabatan (role) spesifik, fix typo System Analyst. Push & redeploy.
+  - **Style**: Overhaul UI Team jadi kartu potret ala Clash Royale (foto full-cover, gradient overlay). Ganti icon Trophy jadi real SVG Crown untuk Kepala. Overhaul UI Services pakai efek Glassmorphism & Hover Glow Neon Cyan. Push & redeploy.
+  - **Fix**: Ubah layout Faslink menjadi center dengan 3 kolom. Rapatkan layout card Tim di tengah menggunakan `sm="auto"`. Push & redeploy.
+  - **Fix**: Paksa layout Faslink jadi mutlak 3 kolom di tablet/desktop dengan max-width agar lebih terpusat secara rapi. Push & redeploy.
+  - **Fix**: Tengahkan teks judul (title) per divisi di section Tim karena sebelumnya kelihatan rata kiri akibat border. Push & redeploy.
+  - **Fix**: Ganti Grid menjadi Box dengan Flexbox di TeamSection untuk memastikan kartu tim benar-benar berada di tengah (centered) secara berdampingan tanpa terpengaruh sistem kolom Grid MUI. Push & redeploy.
+  - **Feat**: Ubah struktur tim menjadi formasi 4-4-2 (Helpdesk & Jaringan, Software & Data, TU UPA-TIK) dan tambah garis pembatas (divider) antar divisi. Push & redeploy.
+  - **Backup**: Buat repository GitHub baru `upatik-web-profile-v1-savepoint` (private) sebagai *savepoint* dan push seluruh source code.
+  - **Feat**: Implementasi sistem Tema (Dark/Light mode) menggunakan `ThemeContext` dan lokalisasi Multi-bahasa (ID/EN) menggunakan `LanguageContext`. Ekstrak JSON dictionary. Update seluruh section. Integrasikan Logo Pendukung via `PartnersSection` (Marquee Slider). Push ke branch `feature/experimental-ui` dan redeploy di server.
+  - **Fix**: Kembalikan logo Polibatam di Home ke versi default, perbaiki styling Navbar Light Mode (background putih, teks gelap), ganti icon Translate ke Language (Globe), hapus filter monokrom di logo bumper, pastikan Footer Contact memanjang 100%, serta integrasikan URL asli ke Services & Helpdesk. Push & redeploy.
+  - **Fix**: Ganti teks "UPA-TIK" menjadi "UPATIK" secara global (kecuali pada Top bar/Navbar). Sesuaikan pewarnaan text About section mengikuti mode terang/gelap. Push & redeploy.
+  - **Fix**: Tambah role "Network Admin" untuk Fatahilah, ubah warna icon/text Services jadi putih saat Dark Mode, hapus judul di Partners bumper dan optimasi animasi *infinite scroll*, ubah logo Footer jadi logo Polibatam dan buat posisinya rata tengah. Push & redeploy.
+  - **Fix**: Tambahkan URL riil ke kolom Tautan Cepat dan E-Learning di footer.
+  - **Style**: Tambahkan border pembatas tipis di bawah setiap section sebagai pemisah visual saat *scroll*. Ubah icon list (`>`) menjadi bullet (`•`) pada footer links.
+  - **Style**: Terapkan jenis *font* `Monument Extended` pada teks UPA-TIK (Bold) dan POLIBATAM (Regular) di Navbar. Push & redeploy.
