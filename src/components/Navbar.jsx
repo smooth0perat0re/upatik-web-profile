@@ -42,14 +42,6 @@ export default function Navbar() {
                 e.target.style.display = 'none';
               }}
             />
-            <Typography
-              variant="h6"
-              noWrap
-              sx={{
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.1rem',
                 color: 'primary.main',
                 textDecoration: 'none',
               }}
