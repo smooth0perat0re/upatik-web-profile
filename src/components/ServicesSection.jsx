@@ -15,12 +15,13 @@ const services = [
 export default function ServicesSection() {
   return (
     <Section id="services" title="Faslink & Layanan" isDark={true}>
-      <Grid container spacing={4} justifyContent="center" sx={{ px: { xs: 2, md: 4 } }}>
+      <Grid container spacing={4} justifyContent="center" alignItems="center" sx={{ px: { xs: 2, md: 4 } }}>
         {services.map((service, index) => (
-          <Grid item xs={12} sm={6} md={4} lg={4} key={index} sx={{ display: 'flex' }}>
+          <Grid item xs={12} sm={4} md={4} lg={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
             <Box 
               sx={{ 
                 width: '100%',
+                maxWidth: 340,
                 bgcolor: 'rgba(18, 18, 18, 0.4)', 
                 backdropFilter: 'blur(12px)',
                 border: '1px solid rgba(19, 159, 203, 0.2)',
